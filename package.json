@@ -1,0 +1,29 @@
+{
+  "name": "wtw_addressbook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.1",
+    "sinon": "^11.1.2",
+    "sinon-chai": "^3.7.0",
+    "superstatic": "^7.1.0"
+  },
+  "devDependencies": {
+    "bdd-lazy-var": "^2.6.1",
+    "cypress": "^8.3.1",
+    "start-server-and-test": "^1.13.1"
+  },
+  "scripts": {
+    "start": "superstatic src ==port 3000",
+    "test": "mocha --file specs/specHelper.js -u bdd-lazy-var/global --recursive --exit specs/units",
+    "Cy:Open": "Cypress open",
+    "Cypress": "start-server-and-test start http://localhost:3000 Cy:open"
+
+
+  }
+}
