@@ -8,54 +8,57 @@
     <title>Address Book</title>
 </head>
 <body>
-    <div class="container">
-        <form id="form">
-        <h1>Address Book</h1>
-        
-        
-        <div class="square"></div>
+    <section class = "container">
+        <div class = "bg-image">
+        </div>
 
-        <div style="text-align: left;">
-            <label for="img">Upload image:</label>
-            <input type="file" id="img" name="img" accept="image/*">
-        </div>     
-        
-        <div>
-            <label for="fullname">Full name</label><br>
-            <input id="fname" name="fullname" placeholder="John Smith">
-        </div>    
-        <div>
-            <label for="city">City</label><br>
-            <input id="city" name="city" placeholder="Rome">
-        </div>
-        <div>
-            <label for="country">Country</label><br>
-            <input id="country" name="country" placeholder="Italy">
-        </div>
-        <div>
-            <label for="phone">Phone </label><br>
-            <input type="phone" id="phone" name="phone" placeholder="+(234)-123-45-678">
-        </div>
-        <div>
-            <label for="email">Email</label><br>
-            <input type="email" id="email" name="email" placeholder="johnsmith@gmail.com">
-        </div>
-        <div>
-            <label for="bootcampBatch">Bootcamp Batch</label><br>
-            <input type="bootcampBatch" id="bootcampBatch" name="bootcampBatch" placeholder="Summer2021">
+        <div class="content">
+            <form id="form">
+            <h1>Address Book</h1>
             
+            
+            <div class="square"></div>
+    
+            <div style="text-align: left;">
+                <label for="img">Upload image:</label>
+                <input type="file" id="img" name="img" accept="image/*">
+            </div>     
+            
+            <div>
+                <label for="fullname">Full name</label><br>
+                <input id="fname" name="fullname" placeholder="John Smith">
+            </div>    
+            <div>
+                <label for="city">City</label><br>
+                <input id="city" name="city" placeholder="Rome">
+            </div>
+            <div>
+                <label for="country">Country</label><br>
+                <input id="country" name="country" placeholder="Italy">
+            </div>
+            <div>
+                <label for="phone">Phone </label><br>
+                <input type="phone" id="phone" name="phone" placeholder="+(234)-123-45-678">
+            </div>
+            <div>
+                <label for="email">Email</label><br>
+                <input type="email" id="email" name="email" placeholder="johnsmith@gmail.com">
+            </div>
+            <div>
+                <label for="bootcampBatch">Bootcamp Batch</label><br>
+                <input type="bootcampBatch" id="bootcampBatch" name="bootcampBatch" placeholder="Summer2021">
+            </div>
+            
+            <div class="buttons">
+                <button type="submit" id="submit">Submit</button>
+            </div>
+        
+        </form>
         </div>
-        <div id="buttons-row">
-        <div class="buttons">
-            <button type="submit" id="submit">Submit</button>
-        </div>
-        <div class="buttons">
-            <button id="reset">Reset</button>
-        </div>
-        </div>
-    </form>
-    </div>
 
-    <script src="./src/app.js"></script>
+    </section>
+    
+
+    <script src="./js/app.js"></script>
 </body>
 </html>

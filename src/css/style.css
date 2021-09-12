@@ -1,75 +1,94 @@
-form{
-    background-color: rgb(25, 191, 221);
-    width: 550px;
+body {
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+.bg-image {
+    background-image: url(../image/background.jpeg); /* Up a directory */
+    background-repeat: no-repeat;
+    background-position: left-top;
+    background-size: 100% 100%;
+    flex: 1;
+    height: 100%;
+}
+.content {
+    flex: 1;
+    height: 100%;
+    overflow: auto;
+}
+form {
+    background-color: rgb(244, 250, 234);
+    width: 500px;
     border-radius: 25px;
-    height: 750px;
+    height: 680px;
     padding: 25px;
     font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
-    margin: 15px auto 15px;
-
+    box-sizing:border-box;
+    margin: 50px auto 50px;
 }
-
 form h1{
-    color: rgb(22, 20, 20);
+    color: rgb(0, 61, 130);
     text-align: right;
-    font-size: 30px;
+    font-size: 20px;
 }
-
 
 .square {
-    height: 100px;
-    width: 100px;
-    background-color: rgb(251, 248, 248);
-  }
-  
-  img {
+    height:70px;
+    width: 70px;
+    background-color: blanchedalmond;
+}
+
+img {
     width: 100%;
     height: 100%;
-  }
+}
 
-label{
-    color: rgb(2, 12, 20);
+label {
+    color: rgb(0, 61, 130);
     font-weight: bold;
     padding-bottom: 5px;
     padding-top: 15px;
     display: inline-block;
-    
 }
 
-input,textarea{
+input,textarea {
     box-sizing: border-box;
-    width: 500px;
-    height: 30px;
+    width: 450px;
+    height: 25px;
     padding-left: 5px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-textarea{
-    height: 50px;
-}
+textarea {
+height: 35px;
+} 
 
-#buttons-row{
+#buttons-rows {
     display: flex;
     justify-content: space-evenly;
 }
 
-button{
+button {
     flex-grow: 1;
-    width: 125px;
-    margin: 25px; 
-    border:none;
-    border-radius: 15px;
-    height: 35px;
+    width: 120px;
+    margin: 25px;
+    border: none;
+    border-radius: 10px;
+    height: 30px;
     font-size: 20px;
 }
 
-button#submit{
-    background-color: rgb(11, 19, 93);
-    color: white;
+button#submit {
+    background-color: rgb(0, 61, 130);
+    color: seashell;
 }
 
-button#reset{
-    background-color: rgb(184, 15, 9);
-    color: rgb(248, 245, 245);
+button#reset {
+    background-color: sienna;
+    color: snow;
 }
