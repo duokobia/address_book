@@ -1,66 +1,65 @@
-// Button Id
-let submitButton = document.getElementById('submit');
-let resetButton = document.getElementById('reset');
 
 // Retains previous information if error is found
 let form = document.getElementById('form');
 
-form.addEventListener('submit', function(addToBook){
-    addToBook.preventDefault();
+form.addEventListener('submit', function(addContactToBook){
+    addContactToBook.preventDefault();
 })
-
-
-// Id for each input
-let image = document.getElementById('img');
-let fullname = document.getElementById('fname');
-let city = document.getElementById('city');
-let country = document.getElementById('country');
-let phone = document.getElementById('phone');
-let email = document.getElementById('email');
-let bootcampBatch = document.getElementById('bootcampBatch');
 
 // To upload image still not working 
 var loadFile = function(event) {
 	var image = document.getElementById('img');
 	image.src = URL.createObjectURL(event.target.files[0]);
 };
+// Button Id
+let submitButton = document.getElementById('submit');
 
-// Reset to blank form
-resetButton.addEventListener('click', function(){
-    img.value = '';
-    fname.value = '';
-    city.value = '';
-    country.value = '';
-    phone.value = '';
-    email.value = '';
-    bootcampBatch.value = '';
-})
+submitButton.addEventListener("click", addContactToBook)
 
-//Submission validation and localStorage
-submitButton.addEventListener('click', validate)
+function addContactToBook(){
 
-function validate(){
+    let contact = { 
+                    image: document.getElementById('img').value,
+                    fullname: document.getElementById('fullname').value,
+                    city: document.getElementById('city').value,
+                    country: document.getElementById('country').value,
+                    phone: document.getElementById('phone').value,
+                    email: document.getElementById('email').value,
+                    bootcampBatch: document.getElementById('bootcampBatch').value
+    };
 
-if  
-    ((document.getElementById('img').value!== "") &&
-    (document.getElementById('fname').value!== "") &&
-    (document.getElementById('city').value!== "") &&
-    (document.getElementById('country').value!== "") &&
-    (document.getElementById('phone').value!== "") &&
-    (document.getElementById('email').value!== "") &&
-    (document.getElementById('bootcampBatch').value!== ""))
-
-    { addToBook(); } // If above is valid, clicking submit calls this function, else
-            
-else{
-    alert("Please fill the blank space(s)");
+    let isValid = validate(contact);
+    if (!isValid){
+        alert("Please fill the blank spaces");
+        return;
     }
 
-function addToBook(){
+// Check if contact already exists in contact book
+// If it does not exist, add to contact, else, display error message
+    let contactExists = isContactInBook(contact);
+    if (!contactExists) {
+        saveContact(contact);
+        alert("Saved successfully");
+        location.reload();
+    } else {
+        alert("Contact already exists!");
+    }
+}
 
-    let person = {'img': img.value, 'fullname':fname.value, 'city':city.value, 'country':country.value, 'phone':phone.value, 'email': email.value, 'bootcampBatch':bootcampBatch.value};
-                       
-    localStorage.setItem('person', JSON.stringify(person));
-    console.log(localStorage);
-                     
-}}
+
+function isContactInBook(contact) {
+    let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+       //Check if the new contact exists in localStorage
+        return contacts.find(elem=> elem.phone === contact.phone || elem.email === contact.email);
+}
+
+function saveContact(contact) {
+    let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+    contacts.push(contact);
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+}
+
+//All the placeholders must be filled. Uploading pics optional
+function validate(contact) {
+    return contact.fullname && contact.city && contact.country && contact.phone && contact.email && contact.bootcampBatch
+};
